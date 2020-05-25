@@ -116,20 +116,24 @@ public class FHybridMemT1FLS
 
         
         //just an example of setting the discretisation level of an output - the usual level is 100
-        promotion.setDiscretisationLevel(100);        
+        promotion.setDiscretisationLevel(1000);     
+        
+        
+        
+        //plotMFs("Write Frequency Membership Functions", new T1MF_Interface[]{lowWriteFrequencyMF, mediumWriteFrequencyMF, highWriteFrequencyMF}, writeFrequency.getDomain(), 100);   
+        //plotMFs("Promotion Membership Functions", new T1MF_Interface[]{lowPromotionMF, mediumPromotionMF, highPromotionMF}, promotion.getDomain(), 100);   
+
                 
         //plot some sets, discretizing each input into 100 steps.
-        plotMFs("Recency of Acess Membership Functions", new T1MF_Interface[]{lowROAMF, mediumROAMF, highROAMF}, recencyOfAccess.getDomain(), 100); 
-        plotMFs("Read Frequency Membership Functions", new T1MF_Interface[]{lowReadFrequencyMF, mediumReadFrequencyMF, highReadFrequencyMF}, readFrequency.getDomain(), 100);
-        plotMFs("Write Frequency Membership Functions", new T1MF_Interface[]{lowWriteFrequencyMF, mediumWriteFrequencyMF, highWriteFrequencyMF}, writeFrequency.getDomain(), 100);   
-        plotMFs("Promotion Membership Functions", new T1MF_Interface[]{lowPromotionMF, mediumPromotionMF, highPromotionMF}, promotion.getDomain(), 100);   
-        
+        //plotMFs("Recency of Acess Membership Functions", new T1MF_Interface[]{lowROAMF, mediumROAMF, highROAMF}, recencyOfAccess.getDomain(), 100); 
+        //plotMFs("Read Frequency Membership Functions", new T1MF_Interface[]{lowReadFrequencyMF, mediumReadFrequencyMF, highReadFrequencyMF}, readFrequency.getDomain(), 100);
+               
         //plot control surface
         //do either height defuzzification (false) or centroid d. (true)
         //plotControlSurface(true, 100, 100);
         
         //print out the rules
-        System.out.println("\n"+rulebase);        
+        //System.out.println("\n"+rulebase);        
     }
     
     /**
@@ -137,7 +141,7 @@ public class FHybridMemT1FLS
      * @param foodQuality
      * @param serviceLevel 
      */
-    private String getPromotionValue(double recencyOfAccessLevel, double readFrequencyLevel, double writeFrequencyLevel)
+    public String getPromotionValue(double recencyOfAccessLevel, double readFrequencyLevel, double writeFrequencyLevel)
     {
     	String outputString;
        //first, set the inputs
@@ -171,21 +175,5 @@ public class FHybridMemT1FLS
         }
         plotter.show(name);
     }
-
-    public static void main (String args[]) throws IOException
-    {
-    	FileWriter fw = new FileWriter("output_1.txt");
-        BufferedWriter writeFileBuffer = new BufferedWriter(fw);
-        FHybridMemT1FLS fHybridSystem = new FHybridMemT1FLS();
-        
-        //get some outputs
-        for(int i = 0; i < 10; i++) {
-        	for(int j = 0; j < 10; j++) {
-        		for(int k = 0; k < 10; k++)
-        			writeFileBuffer.write(fHybridSystem.getPromotionValue(i,j,k));
-        	}
-        }
-       writeFileBuffer.close();
-    }
+    
 }
-
