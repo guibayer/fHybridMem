@@ -120,7 +120,7 @@ public class FHybridMemT2FLS
         IntervalT2MF_Trapezoidal lowPromotionMF = new IntervalT2MF_Trapezoidal("IT2MF for Low Promotion", lowPromotionUMF, lowPromotionLMF);
              
         //Average
-        T1MF_Trapezoidal averagePromotionUMF = new T1MF_Trapezoidal("Upper MF for Average Promotion", new double[] {0, 4, 6, 10});
+        T1MF_Trapezoidal averagePromotionUMF = new T1MF_Trapezoidal("Upper MF for Average Promotion", new double[] {-1, 4, 6, 11});
         T1MF_Trapezoidal averagePromotionLMF = new T1MF_Trapezoidal("Lower MF for Average Promotion", new double[] {1, 4, 6, 9}, new double[] {0.6, 0.6});
         IntervalT2MF_Trapezoidal averagePromotionMF = new IntervalT2MF_Trapezoidal("IT2MF for Average Promotion", averagePromotionUMF, averagePromotionLMF);
     
@@ -129,7 +129,7 @@ public class FHybridMemT2FLS
         T1MF_Trapezoidal highPromotionLMF = new T1MF_Trapezoidal("Lower MF for High Promotion", new double[] {6, 9, 10, 10}, new double[] {0.6, 0.6});
         IntervalT2MF_Trapezoidal highPromotionMF = new IntervalT2MF_Trapezoidal("IT2MF for High Promotion", highPromotionUMF, highPromotionLMF);
         
-        //plotMFs("Promotion Membership Functions", new IntervalT2MF_Interface[]{lowPromotionMF, averagePromotionMF, highPromotionMF}, 100); 
+        plotMFs("Promotion Membership Functions", new IntervalT2MF_Interface[]{lowPromotionMF, averagePromotionMF, highPromotionMF}, 100); 
         
         //Set up the antecedents and consequents - note how the inputs are associated...
         IT2_Antecedent highROA = new IT2_Antecedent("HighROA", highROAMF, recencyOfAccess);
