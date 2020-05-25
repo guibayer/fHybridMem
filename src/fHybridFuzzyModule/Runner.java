@@ -14,9 +14,9 @@ public class Runner {
         FHybridMemT2FLS fHybridSystemT2 = new FHybridMemT2FLS();
         
         //get some outputs
-        for(int i = 0; i < 100; i++) {
-        	for(int j = 0; j < 100; j++) {
-        		for(int k = 0; k < 100; k++) {
+        for(int i = 0; i <= 10; i++) {
+        	for(int j = 0; j <= 10; j++) {
+        		for(int k = 0; k <= 10; k++) {
         			writeFileBuffer.write("Tipo-1:" + fHybridSystemT1.getPromotionValue(i,j,k));
         			writeFileBuffer.write("Tipo-2:" + fHybridSystemT2.getPromotionValue(i,j,k));
         			writeFileBuffer.write("--------------------------------------------------------------------------------------\n");

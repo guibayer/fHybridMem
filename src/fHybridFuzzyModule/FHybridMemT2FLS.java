@@ -183,10 +183,10 @@ public class FHybridMemT2FLS
         promotion.setDiscretisationLevel(1000);        
             
         //plot some sets, discretizing each input into 100 steps.
-        plotMFs("Recency of Access Membership Functions", new IntervalT2MF_Interface[]{highROAMF, mediumROAMF, lowROAMF}, 1000);        
-        plotMFs("Read Frequency Membership Functions", new IntervalT2MF_Interface[]{lowReadFrequencyMF, mediumReadFrequencyMF, highReadFrequencyMF}, 1000); 
-        plotMFs("Write Frequency Membership Functions", new IntervalT2MF_Interface[]{lowWriteFrequencyMF, mediumWriteFrequencyMF, highWriteFrequencyMF}, 1000); 
-        plotMFs("Promotion Membership Functions", new IntervalT2MF_Interface[]{lowPromotionMF, averagePromotionMF, highPromotionMF}, 1000); 
+        //plotMFs("Recency of Access Membership Functions", new IntervalT2MF_Interface[]{highROAMF, mediumROAMF, lowROAMF}, 1000);        
+        //plotMFs("Read Frequency Membership Functions", new IntervalT2MF_Interface[]{lowReadFrequencyMF, mediumReadFrequencyMF, highReadFrequencyMF}, 1000); 
+        //plotMFs("Write Frequency Membership Functions", new IntervalT2MF_Interface[]{lowWriteFrequencyMF, mediumWriteFrequencyMF, highWriteFrequencyMF}, 1000); 
+        //plotMFs("Promotion Membership Functions", new IntervalT2MF_Interface[]{lowPromotionMF, averagePromotionMF, highPromotionMF}, 1000); 
         
         
         //plot control surface
