@@ -37,7 +37,7 @@ import type1.system.T1_Consequent;
  * like to generate the applicable tip.
  * @author Christian Wagner
  */
-public class FHybridMemT2FLS
+public class FHybridMemT2FLSWithAdmissibleOrders
 {
     Input recencyOfAccess, readFrequency, writeFrequency;    //the inputs to the FLS
     Output promotion;             //the output of the FLS
@@ -46,7 +46,7 @@ public class FHybridMemT2FLS
     StringBuffer sbf;//String Buffer to select all the text that will be printed on a file
     BufferedWriter bwr;
         
-    public FHybridMemT2FLS()
+    public FHybridMemT2FLSWithAdmissibleOrders()
     {
         //Define the inputs
     	recencyOfAccess = new Input("Recency of Access Level", new Tuple(0,10));
@@ -229,27 +229,29 @@ public class FHybridMemT2FLS
     
     public static void main (String args[]) throws IOException
     {
-    	//FileWriter fw = new FileWriter("output_1.txt");
-        //BufferedWriter writeFileBuffer = new BufferedWriter(fw);
-        FHybridMemT2FLS t2fHybridSystem = new FHybridMemT2FLS();
+    	FileWriter fw = new FileWriter("output_1.txt");
+        BufferedWriter writeFileBuffer = new BufferedWriter(fw);
+    	FHybridMemT2FLSWithAdmissibleOrders t2fHybridSystem = new FHybridMemT2FLSWithAdmissibleOrders();
         
         ArrayList<MemoryPage> myMemoryManager = new ArrayList<MemoryPage>();
+        
+        int k = 5;
         
         //get some outputs
         for(int i = 0; i < 10; i++) {
         	for(int j = 0; j < 10; j++) {
-        		for(int k = 0; k < 10; k++) {
+        		//for(int k = 0; k < 10; k++) {
         			//Cria e avalia cada posição de memória
         			myMemoryManager.add(t2fHybridSystem.getPromotionValue(i,j,k));
-        		}
+        		//}
         	}
         }
         
-        Collections.sort(myMemoryManager, MemoryPage.myMemoryPageComparator);
+        //Collections.sort(myMemoryManager, MemoryPage.myMemoryPageComparator);
                 
         for(MemoryPage iterator : myMemoryManager)
         {
-            System.out.print(iterator.printaValores());
+        	writeFileBuffer.write(iterator.printaValores());
         }
         
        // if ((tempXValue < listHostUseLevel.get(i).getOutputXValue())
@@ -262,6 +264,8 @@ public class FHybridMemT2FLS
 
 		//}
 
+        writeFileBuffer.close();
+        
     }
     
 }
