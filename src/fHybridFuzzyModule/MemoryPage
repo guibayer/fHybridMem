@@ -36,9 +36,9 @@ public class MemoryPage {
 	    		 	&& ((page1.getOutputSupValue() - page1.getOutputInfValue()) <= (page2.getOutputSupValue() - page2.getOutputInfValue())) 
 	    		   ))
 	       {
-	    	   return 1;
-	       }else {
 	    	   return -1;
+	       }else {
+	    	   return 0;
 	       }
 			//		|| (tempXValue == listHostUseLevel.get(i).getOutputXValue()
 			//			& tempYValue <= listHostUseLevel.get(i).getOutputYValue())) {
