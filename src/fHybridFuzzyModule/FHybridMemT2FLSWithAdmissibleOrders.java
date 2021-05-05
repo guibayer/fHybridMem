@@ -235,15 +235,15 @@ public class FHybridMemT2FLSWithAdmissibleOrders
         
         ArrayList<MemoryPage> myMemoryManager = new ArrayList<MemoryPage>();
         
-        int k = 5;
+        //int k = 5;
         
         //get some outputs
         for(int i = 0; i < 10; i++) {
         	for(int j = 0; j < 10; j++) {
-        		//for(int k = 0; k < 10; k++) {
+        		for(int k = 0; k < 10; k++) {
         			//Cria e avalia cada posição de memória
         			myMemoryManager.add(t2fHybridSystem.getPromotionValue(i,j,k));
-        		//}
+        		}
         	}
         }
         
